@@ -45,14 +45,15 @@ export default async function createUser(
 		const token = Authenticator.generateToken({ id });
 
 		res.status(200).send({
-			access_token: token,
+			access_token: token
 		});
 	} catch (error) {
 		res.status(400).send({
-			message: error.message,
+			message: error.message
 		});
+	} finally {
+		await BaseDB.destroyConnection();	
 	}
-	await BaseDB.destroyConnection();
 }
 
 
