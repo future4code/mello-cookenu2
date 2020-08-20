@@ -1,6 +1,6 @@
-import BaseDatabase from "./BaseDatabase";
+import BaseDB from "./BaseDatabase";
 
-export default class UserDatabase extends BaseDatabase {
+export default class UserDatabase extends BaseDB {
 	private static TABLE_NAME = "user_cookenu";
 
 	public async createUser(
