@@ -1,17 +1,13 @@
 import dotenv from "dotenv";
 import express from "express";
 import { AddressInfo } from "net";
+import HashManager from "./services/HashManager";
+
 
 dotenv.config()
 
 const app = express()
 app.use(express.json())
-
-
-
-
-
-
 
 
 
