@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import { AddressInfo } from "net";
 import signup from "./endpoints/signup"
+import  login  from "./endpoints/login";
 
 
 dotenv.config()
@@ -11,7 +12,7 @@ app.use(express.json())
 
 
 app.post("/signup", signup)
-
+app.post("/login", login)
 
 
 
