@@ -1,4 +1,4 @@
-import BaseDatabase from "./BaseDatabase";
+import BaseDB from "./BaseDatabase";
 
 export default class UserDatabase extends BaseDatabase {
    

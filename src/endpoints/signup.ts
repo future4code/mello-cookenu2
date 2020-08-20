@@ -5,12 +5,12 @@ import IdGenerator from "../services/IdGenerator";
 import HashManager from "../services/HashManager";
 import Authenticator from "../services/Athenticator";
 
-export default async function createUser(
+export default async function signup (
 	req: Request,
 	res: Response
 ): Promise<void> {
 	try {
-		let { name, email, password } = req.body;
+		const { name, email, password } = req.body;
 
 		if (!name.replace(/\s/g, "")) {
 			throw new Error("Name not informed");
@@ -55,5 +55,6 @@ export default async function createUser(
 		await BaseDB.destroyConnection();	
 	}
 }
+	
 
 
