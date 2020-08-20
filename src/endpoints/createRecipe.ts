@@ -23,7 +23,6 @@ export default async function createRecipe(
 
 		const userDB = new UserDatabase();
 		const user = await userDB.getUserById(authenticationData.id);
-		console.log(user);
 
 		const recipeId = IdGenerator.execute();
 
