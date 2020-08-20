@@ -1,6 +1,6 @@
 import BaseDB from "./BaseDatabase"
 
-interface Recipe {
+export interface Recipe {
     id: string,
     title: string,
     description: string,

@@ -1,6 +1,6 @@
 import BaseDB from "./BaseDatabase";
 
-export default class UserDatabase extends BaseDatabase {
+export default class UserDatabase extends BaseDB {
    
 	private static TABLE_NAME = "user_cookenu";
 
@@ -21,9 +21,14 @@ export default class UserDatabase extends BaseDatabase {
         `);
 	}
 		
-	getUserById(id: any) {
-			
-	}
+	public async getUserById(id: any) {
+        const result = await this.getConnection().raw(`
+			SELECT * FROM ${UserDatabase.TABLE_NAME} 
+			WHERE id = "${id}" 
+		`) 		
+		return result[0][0]
+    }
+    
 	public async getUserByEmail(email: any): Promise<any> {
 		const result = await this.getConnection().raw(`
 			SELECT * FROM ${UserDatabase.TABLE_NAME} 
