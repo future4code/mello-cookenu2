@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import { AddressInfo } from "net";
-import HashManager from "./services/HashManager";
+import signup from "./endpoints/signup"
 
 
 dotenv.config()
@@ -10,6 +10,7 @@ const app = express()
 app.use(express.json())
 
 
+app.post("/signup", signup)
 
 
 
