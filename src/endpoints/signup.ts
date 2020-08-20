@@ -52,8 +52,8 @@ export default async function signup (
 			message: error.message
 		});
 	} finally {
-        await BaseDB.destroyConnection();
-    }
+		await BaseDB.destroyConnection();	
+	}
 }
 	
 
