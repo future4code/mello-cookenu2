@@ -44,5 +44,6 @@ export default class UserDatabase extends BaseDB {
             VALUE ('${followerId}', '${followedId}')        
         `)
     }
+
 }
 	
