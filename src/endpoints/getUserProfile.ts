@@ -9,8 +9,6 @@ export default async function getUserProfile (req: Request, res: Response): Prom
         const token = req.headers.authorization as string
         const authenticationData = await Authenticator.getTokenData(token)
 
-        console.log(authenticationData)
-
         const userDB = new UserDatabase()
         const response = await userDB.getUserById(authenticationData.id)
 
