@@ -12,6 +12,10 @@ export default async function (req: Request, res: Response): Promise<void> {
             throw new Error("Id must be informed");
         }
 
+        if(req.body.userToFollowId === authenticationData.id) {
+            throw new Error("User cannot follow himself");
+        }
+
         const userDB = new UserDatabase()
         const userToFollow = await userDB.getUserById(req.body.userToFollowId)
         
@@ -26,7 +30,7 @@ export default async function (req: Request, res: Response): Promise<void> {
         })
     } catch (error) {
         res.status(400).send({
-            message: error.message
+            message: error.sqlMessage || error.message 
         })
     } finally {
         await BaseDB.destroyConnection()
