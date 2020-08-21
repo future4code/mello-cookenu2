@@ -3,6 +3,7 @@ import express from "express";
 import { AddressInfo } from "net";
 import signup from "./endpoints/signup"
 import  login  from "./endpoints/login";
+import createRecipe from "./endpoints/createRecipe";
 
 
 dotenv.config()
@@ -13,6 +14,7 @@ app.use(express.json())
 
 app.post("/signup", signup)
 app.post("/login", login)
+app.post("/recipe", createRecipe)
 
 
 
