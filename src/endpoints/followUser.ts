@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import UserDatabase from "../data/UserDatabase";
 import BaseDB from "../data/BaseDatabase";
-import IdGenerator from "../services/IdGenerator";
-import HashManager from "../services/HashManager";
 import Authenticator from "../services/Athenticator";
 
 export default async function (req: Request, res: Response): Promise<void> {
