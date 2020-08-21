@@ -3,7 +3,7 @@ import BaseDB from "../data/BaseDatabase";
 import Authenticator from "../services/Athenticator";
 import UserDatabase from "../data/UserDatabase";
 
-export default async function getOtherUserProfile (req: Request, res: Response): Promise<any> {
+export default async function getAnyUserById (req: Request, res: Response): Promise<any> {
     try {
         const token = req.headers.authorization as string
         const authenticationData = await Authenticator.getTokenData(token)
@@ -21,8 +21,8 @@ export default async function getOtherUserProfile (req: Request, res: Response):
             .send(user)
     } catch (error) {
         res
-        .status(400)
-        .send({
+            .status(400)
+            .send({
             message: error.sqlMessage || error.message
         });
     }   finally {

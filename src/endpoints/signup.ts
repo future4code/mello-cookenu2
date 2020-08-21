@@ -50,7 +50,7 @@ export default async function signup (
 	} catch (error) {
 		res.status(400).send({
 			message: error.message
-		});
+		})
 	} finally {
 		await BaseDB.destroyConnection();	
 	}

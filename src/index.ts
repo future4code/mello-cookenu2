@@ -8,7 +8,7 @@ import getRecipe from "./endpoints/getRecipe";
 import followUser from "./endpoints/followUser";
 import getUserProfile from "./endpoints/getUserProfile";
 import getRecipesFeed from "./endpoints/recipesFeed";
-import getUserById from "./endpoints/getOtherUserProfile";
+import getUserById from "./endpoints/getAnyUserById";
 
 dotenv.config()
 
