@@ -40,10 +40,12 @@ export default class RecipesDatabase extends BaseDB {
                 r.description, 
                 r.created_at, 
                 r.creator_user_id, 
-                uc.name
+                uc.name AS creator_user_name
             FROM ${RecipesDatabase.TABLE_NAME} r 
-                JOIN user_cookenu uc ON r.creator_user_id = uc.id
-                JOIN followers f ON f.followed_id = uc.id
+                JOIN user_cookenu uc 
+                    ON r.creator_user_id = uc.id
+                JOIN followers f 
+                    ON f.followed_id = uc.id
             WHERE f.user_id = '${userId}'
             ORDER BY created_at DESC;
         `)

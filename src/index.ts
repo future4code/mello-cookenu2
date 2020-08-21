@@ -7,6 +7,7 @@ import createRecipe from "./endpoints/createRecipe";
 import getRecipe from "./endpoints/getRecipe";
 import followUser from "./endpoints/followUser";
 import getUserProfile from "./endpoints/getUserProfile";
+import getRecipesFeed from "./endpoints/recipesFeed";
 
 dotenv.config()
 
@@ -20,6 +21,8 @@ app.get("/recipe/:id", getRecipe)
 app.post("/user/follow", followUser)
 app.get("/user/profile", getUserProfile)
 
+
+app.get("/user/feed", getRecipesFeed)
 
 
 
