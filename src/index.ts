@@ -5,6 +5,7 @@ import signup from "./endpoints/signup"
 import login  from "./endpoints/login";
 import createRecipe from "./endpoints/createRecipe";
 import getRecipe from "./endpoints/getRecipe";
+import followUser from "./endpoints/followUser";
 
 
 dotenv.config()
@@ -17,7 +18,7 @@ app.post("/signup", signup)
 app.post("/login", login)
 app.post("/recipe", createRecipe)
 app.get("/recipe/:id", getRecipe)
-
+app.post("/user/follow", followUser)
 
 
 
