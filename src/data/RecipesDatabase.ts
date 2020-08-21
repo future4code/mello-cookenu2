@@ -23,4 +23,12 @@ export default class RecipesDatabase extends BaseDB {
             )
         `)
     } 
+
+    public async getRecipeById (id: string): Promise<any> {
+        const result = await this.getConnection().raw(`
+            SELECT * FROM ${RecipesDatabase.TABLE_NAME}
+            WHERE id = '${id}'
+        `)
+        return result[0][0]
+    }
 }
