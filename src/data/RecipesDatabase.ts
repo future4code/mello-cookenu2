@@ -52,4 +52,23 @@ export default class RecipesDatabase extends BaseDB {
         
         return result [0]
     }
+
+    public async checkRecipeAuthor (userId: string, recipeId: string): Promise<boolean> {
+        const result = await this.getConnection().raw(`
+            SELECT COUNT (*) AS count
+            FROM ${RecipesDatabase.TABLE_NAME}
+            WHERE creator_user_id = '${userId}' AND  id = '${recipeId}'
+        `)
+        return Boolean(result[0][0].count)
+    }
+
+    public async editRecipe (recipeId: string, title: string, description: string): Promise<void> {        
+        await this.getConnection().raw(`
+            UPDATE ${RecipesDatabase.TABLE_NAME}
+            SET 
+                title = IF (${title.replace(/\s/g,"").length}, "${title}", title), 
+                description = IF (${description.replace(/\s/g,"").length}, "${description}", description)
+            WHERE id = '${recipeId}'    
+        `)
+    }
 }
