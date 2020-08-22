@@ -9,15 +9,17 @@ export default class UserDatabase extends BaseDB {
 		id: string,
 		name: string,
 		email: string,
-		password: string
+        password: string,
+        role?: string
 	): Promise<void> {
 		await this.getConnection().raw(`
-            INSERT INTO ${UserDatabase.USER_TABLE_NAME} (id, name, email, password)
+            INSERT INTO ${UserDatabase.USER_TABLE_NAME} (id, name, email, password, role)
             VALUES (
                 '${id}',
                 '${name}',
                 '${email}',
-                '${password}'
+                '${password}',
+                '${role}'
             )        
         `);
 	}

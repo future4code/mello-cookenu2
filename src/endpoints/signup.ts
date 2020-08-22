@@ -10,7 +10,7 @@ export default async function signup (
 	res: Response
 ): Promise<void> {
 	try {
-		const { name, email, password } = req.body;
+		const { name, email, password, role } = req.body;
 
 		if (!name.replace(/\s/g, "")) {
 			throw new Error("Name not informed");
@@ -28,6 +28,7 @@ export default async function signup (
 			name: name,
 			email: email,
 			password: password,
+			role: role
 		};
 
 		const id = IdGenerator.execute();
@@ -39,17 +40,21 @@ export default async function signup (
 			id,
 			userData.name,
 			userData.email,
-			cypherPassword
+			cypherPassword,
+			userData.role
 		);
 
-		const token = Authenticator.generateToken({ id });
+		const token = Authenticator.generateToken({ 
+			id,
+			role: userData.role 
+		});
 
 		res.status(200).send({
 			access_token: token
 		});
 	} catch (error) {
 		res.status(400).send({
-			message: error.message
+			message: error.sqlMessage || error.message
 		})
 	} finally {
 		await BaseDB.destroyConnection();	

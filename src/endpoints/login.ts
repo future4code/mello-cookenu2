@@ -32,7 +32,10 @@ export default async function login (req: Request, res: Response): Promise<void>
             throw new Error("Usuario ou senha incorretos")
         }
 
-        const token = Authenticator.generateToken({id: user.id});
+        const token = Authenticator.generateToken({
+            id: user.id,
+            role: user.role
+        });
 
         res.status(200).send({
             "access_token": token
