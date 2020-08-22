@@ -5,7 +5,7 @@ import IdGenerator from "../services/IdGenerator";
 import HashManager from "../services/HashManager";
 import Authenticator from "../services/Athenticator";
 
-export default async function signup (
+export default async function signup(
 	req: Request,
 	res: Response
 ): Promise<void> {
