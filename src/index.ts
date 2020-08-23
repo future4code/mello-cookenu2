@@ -27,8 +27,8 @@ app.get("/user/profile", getUserProfile)
 app.get("/user/feed", getRecipesFeed)
 app.get("/user/:id", getUserById)
 app.put("/recipe/edit/:id", editRecipe)
-app.put("/recipe/delete/:id", deleteRecipe)
 app.delete("/user/delete/:id", deleteUser)
+app.delete("/recipe/delete/:id", deleteRecipe)
 
 
 
