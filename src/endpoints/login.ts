@@ -21,10 +21,6 @@ export default async function login(req: Request, res: Response): Promise<void> 
         const userData = new UserDatabase();
         const user = await userData.getUserByEmail(email);
 
-        if(!user) {
-            throw new Error("user not found");
-        }
-
         const comparePassword = await HashManager.compare(password, user.password);
 
         if(!comparePassword) {

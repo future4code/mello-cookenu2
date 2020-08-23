@@ -8,10 +8,10 @@ export default async function getRecipesFeed (req: Request, res: Response): Prom
     try {
         const token = req.headers.authorization as string
         const authenticationData = Authenticator.getTokenData(token)
-
+        
         const recipesDB = new RecipesDatabase()
         const response = await recipesDB.getRecipesFeed(authenticationData.id)
-
+        
         const recipes = response.map((item: any) => {
             return ({
                 id: item.id,

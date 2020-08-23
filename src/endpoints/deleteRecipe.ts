@@ -18,7 +18,7 @@ export default async function deleteRecipe(req: Request, res: Response): Promise
         }
 
         if (!authenticity && authenticationData.role !== "admin") {
-            throw new Error("Cannot possible edit other users recipes");
+            throw new Error("Cannot possible edit another users recipes");
         }
 
         await recipeDB.deleteRecipe(req.params.id)

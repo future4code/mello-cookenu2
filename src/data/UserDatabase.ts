@@ -47,6 +47,13 @@ export default class UserDatabase extends BaseDB {
         `)
     }
 
+    public async deleteUser(userId: string): Promise<void> {
+        await this.getConnection().raw(`
+            DELETE FROM ${UserDatabase.USER_TABLE_NAME}
+            WHERE id = "${userId}"
+        `)        
+
+    }
     
 
 }

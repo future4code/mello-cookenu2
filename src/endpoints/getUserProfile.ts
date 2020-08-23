@@ -7,7 +7,7 @@ export default async function getUserProfile(req: Request, res: Response): Promi
     try {
 
         const token = req.headers.authorization as string
-        const authenticationData = await Authenticator.getTokenData(token)
+        const authenticationData = Authenticator.getTokenData(token)
 
         const userDB = new UserDatabase()
         const response = await userDB.getUserById(authenticationData.id)

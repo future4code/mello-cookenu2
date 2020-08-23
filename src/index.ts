@@ -11,6 +11,7 @@ import getRecipesFeed from "./endpoints/recipesFeed";
 import getUserById from "./endpoints/getAnyUserById";
 import editRecipe from "./endpoints/editRecipe";
 import deleteRecipe from "./endpoints/deleteRecipe"
+import deleteUser from "./endpoints/deleteUser";
 
 dotenv.config()
 
@@ -23,11 +24,11 @@ app.post("/recipe", createRecipe)
 app.get("/recipe/:id", getRecipe)
 app.post("/user/follow", followUser)
 app.get("/user/profile", getUserProfile)
-app.get("/user/:id", getUserById)
 app.get("/user/feed", getRecipesFeed)
+app.get("/user/:id", getUserById)
 app.put("/recipe/edit/:id", editRecipe)
+app.delete("/user/delete/:id", deleteUser)
 app.delete("/recipe/delete/:id", deleteRecipe)
-
 
 
 
