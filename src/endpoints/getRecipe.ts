@@ -4,7 +4,7 @@ import RecipesDatabase from "../data/RecipesDatabase";
 import BaseDB from "../data/BaseDatabase";
 import Authenticator from "../services/Athenticator";
 
-export default async function getRecipe (req: Request, res: Response): Promise<any> {
+export default async function getRecipe(req: Request, res: Response): Promise<any> {
     try {
         const token = req.headers.authorization as string
         Authenticator.getTokenData(token)

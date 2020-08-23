@@ -5,8 +5,7 @@ import Authenticator from "../services/Athenticator";
 import BaseDB from "../data/BaseDatabase"
 
 
-
-export default async function login (req: Request, res: Response): Promise<void> {
+export default async function login(req: Request, res: Response): Promise<void> {
     try {
         
         const { email, password } = req.body;

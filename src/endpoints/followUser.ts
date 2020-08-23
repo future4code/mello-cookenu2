@@ -3,7 +3,7 @@ import UserDatabase from "../data/UserDatabase";
 import BaseDB from "../data/BaseDatabase";
 import Authenticator from "../services/Athenticator";
 
-export default async function followUser (req: Request, res: Response): Promise<void> {
+export default async function followUser(req: Request, res: Response): Promise<void> {
     try {
         const token = req.headers.authorization as string
         const authenticationData = Authenticator.getTokenData(token)

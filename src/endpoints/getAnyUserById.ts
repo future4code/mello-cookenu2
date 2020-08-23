@@ -3,7 +3,7 @@ import BaseDB from "../data/BaseDatabase";
 import Authenticator from "../services/Athenticator";
 import UserDatabase from "../data/UserDatabase";
 
-export default async function getAnyUserById (req: Request, res: Response): Promise<any> {
+export default async function getAnyUserById(req: Request, res: Response): Promise<any> {
     try {
         const token = req.headers.authorization as string
         const authenticationData = await Authenticator.getTokenData(token)
