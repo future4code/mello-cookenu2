@@ -6,7 +6,7 @@ import UserDatabase from "../data/UserDatabase";
 export default async function getAnyUserById(req: Request, res: Response): Promise<any> {
     try {
         const token = req.headers.authorization as string
-        const authenticationData = await Authenticator.getTokenData(token)
+        Authenticator.getTokenData(token)
         
         const userDB = new UserDatabase()
         const response = await userDB.getUserById(req.params.id)

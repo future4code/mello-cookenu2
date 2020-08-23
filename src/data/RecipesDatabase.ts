@@ -47,10 +47,10 @@ export default class RecipesDatabase extends BaseDB {
                 JOIN followers f 
                     ON f.followed_id = uc.id
             WHERE f.user_id = '${userId}'
-            ORDER BY created_at DESC;
+            ORDER BY created_at DESC
         `)
         
-        return result [0]
+        return result[0]
     }
 
     public async checkRecipeAuthor(userId: string, recipeId: string): Promise<boolean> {
